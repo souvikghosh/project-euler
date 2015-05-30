@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<script> 
+	function problem1() {
+		var sum = 0;
+		for (var i = 2; i < 1000; i++) {
+			if ((i % 3 == 0) || (i % 5 == 0)) {
+				sum += i;
+			}
+		}
+		alert("The sum of all multiples of 3 or 5 below 1000 is " 
+			+ sum + ".");
+	}
+	function problem2() {
+		
+		var firs_num = 1;
+		var sec_num = 2;
+		var sum = firs_num + sec_num;
+		var total_sum = 0;
+		
+		while(sum < 4000000) {
+			if (sum % 2 == 0) {
+				total_sum += sum;
+			}
+			
+			firs_num = sec_num;
+			sec_num = sum;
+			sum = firs_num + sec_num;
+		}
+		alert("The sum of the even-valued terms is " 
+			+ total_sum + ".");
+	}
+	function problem3() {
+		function is_prime(num) {
+			largest_pos = Math.sqrt(num);
+			i = 2;
+			while (i <= largest_pos) {
+					if(num % i == 0) {
+					return(false);
+				}
+			i += 1;
+			}
+			return(true);
+		}
+
+		function largest_prime_factor(num) {
+			j = 2;
+			largest_prime = 1;
+			largest_num = Math.sqrt(num);
+			while (j < largest_num) {
+				while(num % j == 0) {
+				num = num / j;
+				if(is_prime(j)) {largest_prime = j;}
+				}
+				j += 1;
+			}
+		return(largest_prime);
+		}
+		lar = largest_prime_factor(600851475143);
+		alert("The largest prime factor of 600851475143 is " 
+			+ lar);
+	}
+</script>
+</head>
+<body>
+	<button onclick="problem1()"> Problem 1 </button>
+	<button onclick="problem2()"> Problem 2 </button>
+	<button onclick="problem3()"> Problem 3 </button>
+</body>
+</html>
